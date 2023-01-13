@@ -10,11 +10,6 @@ Use `forEach` to loop over the input array and work with each value.  Push the n
 
 const addOne = (arr) => {
   // Solution code here...
-  const newArray = [];
-  arr.forEach((value) => {
-    newArray.push(value + 1);
-  });
-  return(newArray);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -27,11 +22,6 @@ Use `forEach` to loop over the input array. Modify each string, and add the upda
 
 const addExclamation = (arr) => {
   // Solution code here...
-  const newArray = [];
-  arr.forEach( value => {
-    newArray.push(value + '!');
-  });
-  return newArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -44,11 +34,6 @@ Use `forEach` to loop over the input array. The modified strings should each be 
 
 const allUpperCase = (arr) => {
   // Solution code here...
-  const newArray = [];
-  arr.forEach( value => {
-    newArray.push(value.toUpperCase());
-  });
-  return newArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -63,16 +48,10 @@ Use `forEach` to build a new array of strings, each string modified by the callb
 
 const greeting = (word) => {
   // Solution code here...
-  return `${word.toUpperCase()}!`;
 };
 
 const speaker = (words, callback) => {
   // Solution code here...
-  const newArray = [];
-  words.forEach( value => {
-    newArray.push(callback(value));
-  });
-  return newArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -93,17 +72,10 @@ Return the modified array.
 
 const addValues = (arr, value) => {
   // Solution code here...
-  value.push(arr);
 };
 
 const addNumbers = (num, arr, times, callback) => {
   // Solution code here...
-
-  arr.forEach((num) => {
-    callback(times);
-  });
-
-  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -144,6 +116,22 @@ Return the resulting output array.
 
 const fizzbuzz = (arr) => {
   // Solution code here...
+  const newArr = [];
+  arr.array.forEach(value => {
+    if(value % 5 === 0 && value % 3 === 0) {
+      newArr.push('Fizz Buzz');
+    }
+    else if(value % 3 === 0) {
+      newArr.push('Fizz');
+    }
+    else if(value % 5 === 0) {
+      newArr.push('Buzz');
+    }
+    else{
+      newArr.push(value);
+    }
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
