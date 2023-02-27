@@ -12,9 +12,8 @@ Write a function named screenForNames that takes in an array of strings and uses
 
 const screenForNames = (arr) => {
   // Solution code here...
-  for( let i = 1 ; i < newArr.length ; i++){
-    newArr[i] = newArr[i].charAt(0).toUpperCase();
-}
+  return arr.filter(name => /^(Mr[.]\s|Mrs[.]\s|Ms[.]\s|Dr[.]\s){1}[A-Z][a-zA-z\s]+$/.test(name));
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -26,6 +25,7 @@ For example, ['apple', 'banana', 'MacGyver'] returns ['Apple', 'Banana', 'MacGyv
 
 const toTitleCase = (arr) => {
   // Solution code here...
+  return arr.map(string => string.charAt(0).toUpperCase() + string.slice(1));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -101,6 +101,8 @@ let starWarsData = [{
 
 let biggerThanLuke = (arr) => {
   // Solution code here...
+  let lukeMass = 77;
+  return arr.filter(name => Number(name.mass) > lukeMass).map(name => name.name).join(' - ');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -119,6 +121,11 @@ This data could be sorted by name or price.
 
 const sortBy = (property, arr) => {
   // Solution code here...
+  return arr.sort((a, b) => {
+    if ((a[property] > b[property])) return 1;
+    if ((a[property] < b[property])) return -1;
+    return 0;
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -135,6 +142,11 @@ https:/missingslash.org returns false because the URL is malformed
 ------------------------------------------------------------------------------------------------ */
 const isSecure = (url) => {
   // Solution code here...
+  if (url.startsWith('https://')) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -158,6 +170,34 @@ Here is a sample board:
 
 const detectTicTacToeWin = (board) => {
   // Solution code here...
+
+  if (board['']['X'] === board[''][''] && board['']['X'] === board['']['O'] && board['']['X'] !== '') {
+    return board['']['X'];
+  }
+  // check lower row
+  if (board['0']['X'] === board['0'][''] && board['0']['X'] === board['0']['0'] && board['0']['X'] !== '') {
+    return board['0']['X'];
+  }
+  // check left column
+  if (board['X'][''] === board[''][''] && board['X'][''] === board['0'][''] && board['X'][''] !== '') {
+    return board['X'][''];
+  }
+  // check right column
+  if (board['X']['O'] === board['']['0'] && board['X']['0'] === board['0']['0'] && board['X']['0'] !== '') {
+    return board['X']['0'];
+  }
+  // check center row, column, and diagonals
+  if (
+    board['X']['X'] !== '' &&
+    ((board['X']['X'] === board['X'][''] && board['X']['X'] === board['X']['0']) ||
+      (board['X']['X'] === board['']['X'] && board['X']['X'] === board['0']['X']) ||
+      (board['X']['X'] === board[''][''] && board['X']['X'] === board['0']['0']) ||
+      (board['X']['X'] === board['0'][''] && board['X']['X'] === board['']['0']))
+  ) {
+    return board['X']['X'];
+  }
+
+  return '';
 };
 
 /* ------------------------------------------------------------------------------------------------
