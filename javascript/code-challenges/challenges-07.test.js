@@ -24,21 +24,10 @@ let starWarsPeople = [
   }
 ];
 
-const sortStarWarsCharacters = (starWarsArr, height) => {
+const sortStarWarsCharacters = (starWarsArr) => {
   // Solution code here...
-  return starWarsArr.sort((a, b) => {
-    var x = a[height];
-    var y = b[height];
-    return ((x < y) ? -1 : ((x > y) ? 1 : 0));
-  });
+  return starWarsArr.sort((a, b) => b.height - a.height);
 };
-starWarsPeople = sortStarWarsCharacters(starWarsPeople, 'height');
-console.log(starWarsPeople);
-for (var i = 0; i < starWarsPeople.length; i++) {
-  console.log('this is the height', starWarsPeople[i]['height']);
-}
-
-// code reference https://stackoverflow.com/questions/31980942/how-to-sort-javascript-array-by-height-and-get-only-print-height-in-console
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -48,6 +37,8 @@ Write a function named removeThree that takes an index and an array. The functio
 
 const removeThree = (idx, arr) => {
   // Solution code here...
+  arr.splice(idx, 3);
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -58,6 +49,7 @@ Write a function named joinArray that takes an array and joins all of the elemen
 
 const joinArray = (arr) => {
   // Solution code here...
+  return arr.join(' ');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -76,6 +68,9 @@ For example, if the input is 'Welcome', the output will be:
 const howMuchPencil = (str) => {
   let result = [];
   // Solution code here...
+  for (let i = 0; i < str.length + 1; i++) {
+    result.push(str.slice(i));
+  }
   return result;
 };
 
@@ -89,6 +84,7 @@ For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 
 const wordsToCharList = (arr) => {
   // Solution code here...
+  return arr.split('');
 };
 
 
@@ -136,6 +132,7 @@ const gruffaloCrumble = {
 const listFoods = (recipe) => {
   let result = [];
   // Solution code here...
+  recipe.ingredients.forEach(str => { result.push(str.slice(str.indexOf(' ', str.indexOf(' ') + 1) + 1)) });
   return result;
 };
 
