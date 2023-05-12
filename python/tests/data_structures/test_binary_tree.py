@@ -28,6 +28,24 @@ def test_post_order(tree):
     assert actual == expected
 
 
+def test_contains(tree):
+    actual = tree.contains("a")
+    expected = True
+    assert actual == expected
+
+def test_contains_deeper(tree):
+    actual = tree.contains("c")
+    expected = True
+    assert actual == expected
+
+
+# @pytest.mark.skip("TODO")
+def test_not_contains(tree):
+    actual = tree.contains(100)
+    expected = False
+    assert actual == expected
+
+
 @pytest.fixture
 def tree():
     """
