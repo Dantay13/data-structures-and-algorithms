@@ -60,6 +60,19 @@ class BinaryTree:
             return True
         return self._search_recursively(value, node.left) or self._search_recursively(value, node.right)
 
+    def find_maximum_value(self):
+        return self._find_maximum_value_recursively(self.root)
+
+    def _find_maximum_value_recursively(self, node):
+        if node is None:
+            return float('-inf') # Return negative infinity for an empty tree
+
+        max_value = node.value
+        left_max = self._find_maximum_value_recursively(node.left)
+        right_max = self._find_maximum_value_recursively(node.right)
+
+        max_value = max(max_value, left_max, right_max)
+        return max_value
 
 class Node:
     def __init__(self, value, left=None, right=None):
