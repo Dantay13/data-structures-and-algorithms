@@ -50,6 +50,16 @@ class BinaryTree:
 
         return traversal
 
+    def contains(self, value):
+        return self._search_recursively(value, self.root)
+
+    def _search_recursively(self, value, node):
+        if node is None:
+            return False
+        if node.value == value:
+            return True
+        return self._search_recursively(value, node.left) or self._search_recursively(value, node.right)
+
 
 class Node:
     def __init__(self, value, left=None, right=None):
