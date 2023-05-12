@@ -46,6 +46,19 @@ def test_not_contains(tree):
     assert actual == expected
 
 
+def test_max_value(tree):
+    actual = tree.find_maximum_value()
+    expected = 7
+    assert actual == expected
+
+
+def test_find_maximum_value_empty_tree():
+    empty_tree = BinaryTree()
+    actual = empty_tree.find_maximum_value()
+    expected = float('-inf')
+    assert actual == expected
+
+
 @pytest.fixture
 def tree():
     """
@@ -63,5 +76,6 @@ def tree():
     tree.root.left.right = Node("e")
     tree.root.right.left = Node("f")
     tree.root.right.right = Node("g")
+
 
     return tree
