@@ -50,3 +50,22 @@ class BinarySearchTree(BinaryTree):
             return self._search_recursively(value, node.left)
         else:
             return self._search_recursively(value, node.right)
+
+    def breadth_first(self):
+        if self.root is None:
+            return []
+
+        result = []
+        queue = deque()
+        queue.append(tree.root)
+
+        while queue:
+            node = queue.popleft()
+            result.append(node.value)
+
+            if node.left:
+                queue.append(node.left)
+            if node.right:
+                queue.append(node.right)
+
+        return result
