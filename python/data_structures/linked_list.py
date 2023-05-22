@@ -13,7 +13,7 @@ class LinkedList:
             self.head = new_node
         else:
             new_node.next = self.head
-            self.head = new_nod
+            self.head = new_node
 
     def includes(self, value):
         # method body here
