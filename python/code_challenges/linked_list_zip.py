@@ -1,22 +1,37 @@
-class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
+from data_structures.linked_list import LinkedList, Node
 
-class LinkedList:
-    def __init__(self):
-        self.head = None
 
-    def insert(self, value):
-        new_node = Node(value)
-        new_node.next = self.head
-        self.head = new_node
+def zip_lists(a, b):
+    """
+    Zips two linked lists together into one, alternating between nodes.
+    Returns a reference to the zipped list.
+    """
+    if not a.head and not b.head:
+        # If both lists are empty, return an empty list
+        return LinkedList()
+    elif not a.head:
+        # If the first list is empty, return the second list as it is
+        return b
+    elif not b.head:
+        # If the second list is empty, return the first list as it is
+        return a
 
-    def __str__(self):
-        current_node = self.head
-        output = ""
-        while current_node:
-            output += "{ " + str(current_node.data) + " } -> "
-            current_node = current_node.next
-        output += "NULL"
-        return output
+    # Initialize variables for the current nodes of the two lists
+    current_a = a.head
+    current_b = b.head
+    # Initialize a new linked list to store the zipped list
+    zipped_list = LinkedList()
+
+    while current_a or current_b:
+        if current_a:
+            # Append the node from the first list to the zipped list
+            zipped_list.append(current_a.value)
+            current_a = current_a.next
+
+        if current_b:
+            # Append the node from the second list to the zipped list
+            zipped_list.append(current_b.value)
+            current_b = current_b.next
+
+    return zipped_list
+
