@@ -64,6 +64,27 @@ class LinkedList:
             current = current.next
         raise TargetError("Target value not found: Cannot insert after.")
 
+    def kth_from_end(self, k):
+        if not isinstance(k, int) or k < 0:
+            raise TargetError("k should be a non-negative integer.")
+
+        # Calculate the length of the linked list
+        length = 0
+        current = self.head
+        while current:
+            length += 1
+            current = current.next
+
+        if k >= length:
+            raise TargetError("k is larger than or equal to the length of the linked list.")
+
+        # Traverse the list to find the kth node from the end
+        current = self.head
+        for _ in range(length - k - 1):
+            current = current.next
+
+        return current.value
+
     def __str__(self):
         # method body here
         values = []
