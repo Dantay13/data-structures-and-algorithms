@@ -86,3 +86,38 @@ def test_b_empty():
     for value in reversed([1, 2, 3]):
         expected.insert(value)
     assert str(actual) == str(expected)
+
+"""
+added tests
+"""
+
+def test_both_lists_empty():
+    list_a = LinkedList()
+    list_b = LinkedList()
+    actual = zip_lists(list_a, list_b)
+    expected = LinkedList()
+    assert str(actual) == str(expected)
+
+
+def test_a_empty_b_nonempty():
+    list_a = LinkedList()
+    list_b = LinkedList()
+    for value in reversed(["a", "b", "c"]):
+        list_b.insert(value)
+    actual = zip_lists(list_a, list_b)
+    expected = LinkedList()
+    for value in reversed(["a", "b", "c"]):
+        expected.insert(value)
+    assert str(actual) == str(expected)
+
+
+def test_a_nonempty_b_empty():
+    list_a = LinkedList()
+    for value in reversed([1, 2, 3]):
+        list_a.insert(value)
+    list_b = LinkedList()
+    actual = zip_lists(list_a, list_b)
+    expected = LinkedList()
+    for value in reversed([1, 2, 3]):
+        expected.insert(value)
+    assert str(actual) == str(expected)
