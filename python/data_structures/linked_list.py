@@ -19,6 +19,15 @@ class LinkedList:
         # initialization here
         self.head = None
 
+    def insert(self, value):
+        # method body here
+        new_node = Node(value)
+        if self.head is None:
+            self.head = new_node
+        else:
+            new_node.next = self.head
+            self.head = new_nod
+
     def includes(self, value):
         # method body here
         current = self.head
