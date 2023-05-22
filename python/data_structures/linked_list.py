@@ -1,20 +1,23 @@
+class Node:
+    def __init__(self, value=None):
+        self.value = value
+        self.next_node = None
+
+
 class LinkedList:
     """
     Put docstring here
     """
 
+    class Node:
+
+        def __init__(self, value, next_node=None):
+            self.value = value
+            self.next_node = next_node
+
     def __init__(self):
         # initialization here
         self.head = None
-
-    def insert(self, value):
-        # method body here
-        new_node = Node(value)
-        if self.head is None:
-            self.head = new_node
-        else:
-            new_node.next = self.head
-            self.head = new_node
 
     def includes(self, value):
         # method body here
