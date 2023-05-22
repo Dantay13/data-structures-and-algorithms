@@ -19,10 +19,27 @@ class LinkedList:
         # initialization here
         self.head = None
 
+    def includes(self, value):
+        # method body here
+        current = self.head
+        while current:
+            if current.value == value:
+                return True
+            current = current.next
+        return False
 
-        values.append("NULL")
-        return " -> ".join(values)
+    def __str__(self):
+        # method body here
+        values = []
+        current = self.head
+        while current:
+            values.append(str(current.value))
+            current = current.next
+        return ' -> '.join(['{ ' + value + ' }' for value in values] + ['NULL'])
 
 
-class TargetError:
-    pass
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
