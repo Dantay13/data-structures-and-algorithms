@@ -49,7 +49,6 @@ class Hashtable:
     def hash(self, key):
         return self._hash(key)
 
-    # Method to help with testing
     def display(self):
-        return [bucket[:] if bucket else [] for bucket in self._buckets]
+        return [[pair for pair in bucket] if bucket else [] for bucket in self._buckets]
 
