@@ -68,3 +68,22 @@ def test_punctuation_joins():
     actual = first_repeated_word(txt)
     expected = "banana"
     assert actual == expected
+
+
+def test_single_word():
+    actual = first_repeated_word("apple")
+    expected = None
+    assert actual == expected
+
+
+def test_mixed_case():
+    actual = first_repeated_word("Apple apple")
+    expected = "apple"
+    assert actual == expected
+
+
+def test_punctuation_only():
+    actual = first_repeated_word(", . ! ?")
+    expected = None
+    assert actual == expected
+

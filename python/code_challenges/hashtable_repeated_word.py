@@ -6,12 +6,15 @@ def first_repeated_word(s):
     words = s.split()
 
     for word in words:
-        word = word.lower().strip(',.!?')
-        if word_map.contains(word):
-            return word
-        else:
-            word_map.add(word, True)
+        word = word.lower().strip(',.!?-')
+
+        if word:
+            if word_map.has(word):
+                return word
+            else:
+                word_map.set(word, True)
 
     return None
+
 
 
